@@ -1,0 +1,31 @@
+﻿<Window x:Class="DemoCacheLib.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoCacheLib"
+        mc:Ignorable="d"
+        Title="DemoCache" Height="450" Width="740" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock   HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="210" Width="155">
+            В демонстрационном приложении уже подключена самописная библиотека для взаимодействия с интерфейсами и классами.
+            В конструкторе формы уже определны ключи: ключ1, ключ2,ключ3, которые имеют соответственные им значения.Нажав на + вы сможете добавить новое значение ключа.
+        </TextBlock>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="89" Width="155" Effect="{Binding BaselineOffsetProperty, ElementName=textBlock}">
+            ИНСТРУКЦИЯ:
+            Вписать искомый ключ в поле, нажать на желаемый метод(LRU,MRU),просмотреть результирующее значение. 
+        </TextBlock>
+        <TextBox ToolTip="введите ключ формата 'Ключ1'" Name="tbkeys" HorizontalAlignment="Left" Margin="195,35,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="поиск ключа" HorizontalAlignment="Left" Margin="195,4,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox Name="keyresults" Margin="532,35,22,70"></ListBox>
+        <Label Content="Список результатов" HorizontalAlignment="Left" Margin="532,4,0,0" VerticalAlignment="Top" Width="127"/>
+        <Button Click="LRU" Content="LRU" HorizontalAlignment="Left" Margin="333,33,0,0" VerticalAlignment="Top" Width="64" Background="#FF82B3D8"/>
+        <Button Click="MRU" Content="MRU" HorizontalAlignment="Left" Margin="333,8,0,0" VerticalAlignment="Top" Width="64" Background="#FFA4D882"/>
+        <Label Content="Состояние кеша(MRU)" HorizontalAlignment="Left" Margin="339,79,0,0" VerticalAlignment="Top" Width="137"/>
+        <Label Content="Состояние кеша(LRU)" HorizontalAlignment="Left" Margin="176,79,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.503,0.931"/>
+        <ListBox x:Name="CachelistMRU" Margin="339,110,249,164"/>
+        <Button Click="addLRU" Content="+" HorizontalAlignment="Left" Margin="403,33,0,0" VerticalAlignment="Top" Background="#FF0FAFF3"/>
+        <Button Content="+" Click="addMRU" HorizontalAlignment="Left" Margin="403,8,0,0" VerticalAlignment="Top" Background="#FF45B726"/>
+        <ListBox x:Name="CachelistLRU" Margin="176,110,406,164"/>
+    </Grid>
+</Window>
